@@ -1,0 +1,73 @@
+/* Animations */
+
+@media (min-width: 992px) {
+    .leading-items__item {
+        transition: transform 0.1s linear;
+        will-change: transform;
+    }
+
+    .complex-blocks__item {
+        transition: transform 0.1s linear;
+        will-change: transform;
+    }
+
+    /* commons */
+
+    /* State */
+    .js-common-up,
+    .js-common-down,
+    .js-common-left,
+    .js-common-right {
+        opacity: 0;
+        will-change: transform, opacity;
+    }
+
+    /* start direction */
+    .js-common-up {
+        transform: translateY(40px);
+    }
+
+    .js-common-down {
+        transform: translateY(-40px);
+    }
+
+    .js-common-left {
+        transform: translateX(40px);
+    }
+
+    .js-common-right {
+        transform: translateX(-40px);
+    }
+
+    /* when visible */
+    .is-visible {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+
+/* Leading items */
+
+@media (min-width: 992px) {
+    .leading-items__item {
+        transition: transform 0.1s linear;
+        will-change: transform;
+    }
+}
+
+.leading-items__grid {
+    overflow: hidden;
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 24px;
+    grid-row-gap: 24px;
+}
+
+.leading-items__item {
+    border-radius: 16px;
+    padding: 32px;
+    background: var(--white);
+}
