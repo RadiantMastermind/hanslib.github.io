@@ -183,3 +183,66 @@ if ($(window).width() > 992) {
         updateColumns();
     });
 }
+
+
+// start when page is loaded
+document.addEventListener('DOMContentLoaded', function () {
+
+    function animateNumber(element, target, suffix, delay = 0) {
+        let current = 0;
+        let duration = 1000; // length in ms
+        let stepTime = 15; // animation step
+        let steps = duration / stepTime;
+        let increment = target / steps;
+
+        setTimeout(() => {
+            let timer = setInterval(function () {
+                current += increment;
+
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+
+                // Округляем и показываем
+                let displayValue = Math.floor(current);
+                element.innerText = displayValue + suffix;
+            }, stepTime);
+        }, delay * 1000);
+    }
+
+    // creating observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {  // when element stats to be visible
+                const numberElement = entry.target;
+                const text = numberElement.innerText;
+                const match = text.match(/(\d+)/);
+
+                if (match) {
+                    let targetNumber = parseInt(match[1]);
+                    let suffix = text.replace(targetNumber, '');
+                    let delay = parseFloat(numberElement.parentElement?.getAttribute('data-delay') || 0);
+
+                    if (targetNumber > 0) {
+                        animateNumber(numberElement, targetNumber, suffix, delay);
+                    }
+                }
+
+                observer.unobserve(numberElement); // disable observation after set
+            }
+        });
+    }, {
+        threshold: 0.3,      // 30% to be seen before start
+        rootMargin: "0px"    // without any paadings and margins
+    });
+
+    // searching each emements with this class number-count p
+    const numbers = document.querySelectorAll('.number-count p');
+
+    // starting for aech
+    numbers.forEach(el => {
+        observer.observe(el);  // ← starts observatin
+    });
+
+});

@@ -1,3 +1,10 @@
+/* Vars */
+
+:root {
+    --color-prim: #0898fe;
+    --twhite: white;
+}
+
 /* Adaptive container */
 
 @media (min-width: 0px) {
@@ -88,8 +95,8 @@
 }
 
 .table-a tr th {
-    background-color: #0898fe;
-    color: white;
+    background-color: var(--color-prim);
+    color: var(--twhite);
 }
 
 .table-a tr th,

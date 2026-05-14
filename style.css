@@ -24,3 +24,91 @@ body {
 .page-heading {
     font-size: 1.3em;
 }
+
+.leading-items__item {
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.05);
+}
+
+.about-numbsers__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 32px;
+    grid-row-gap: 32px;
+}
+
+.about-numbsers__grid {
+    padding: 20px 0px 50px;
+}
+
+.number-count p {
+    font-size: 3em;
+}
+
+.number-count__block {
+    gap: 12px;
+    align-items: center;
+}
+
+.jsgridheading {
+    margin-top: 30px;
+}
+
+.animations-container {
+    margin-bottom: 30px;
+}
+
+/* Button */
+
+.cyberpunk-btn {
+    width: 230px;
+    height: 60px;
+    border: 0;
+    outline: none;
+    background-color: #050a0e;
+    cursor: pointer;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    font-size: .85rem;
+    text-transform: uppercase;
+    color: var(--twhite);
+    clip-path: polygon(92% 0, 100% 25%, 100% 100%, 8% 100%, 0% 75%, 0 0);
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.btn__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background-color: #0898fe;
+    clip-path: polygon(92% 0, 100% 25%, 100% 100%, 8% 100%, 0% 75%, 0 0);
+    transition: 0.3s;
+}
+
+.cyberpunk-btn:hover .btn__content {
+    background-color: #0564a8;
+}
+
+
+/* Banner */
+
+.banner-main {
+    padding: 92px 0px;
+}
+
+.banner-left__content {
+    max-width: 500px;
+    gap: 20px;
+}
+
+.main-banner__heading {
+    font-size: 3em;
+    font-weight: 600;
+}
