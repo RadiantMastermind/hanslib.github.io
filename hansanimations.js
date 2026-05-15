@@ -246,3 +246,76 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
+
+// Scroll with linear speed
+function smoothScrollConstantSpeed(targetY, speedPxPerSecond = 1000) {
+    const startY = window.pageYOffset;
+    const distance = Math.abs(targetY - startY);
+    const duration = (distance / speedPxPerSecond) * 1000;
+
+    let startTime = null;
+
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+
+        const currentY = startY + (targetY - startY) * progress;
+        window.scrollTo(0, currentY);
+
+        if (timeElapsed < duration) {
+            requestAnimationFrame(animation);
+        }
+    }
+
+    requestAnimationFrame(animation);
+}
+
+// Usage
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+            const targetY = targetElement.getBoundingClientRect().top + window.pageYOffset;
+            smoothScrollConstantSpeed(targetY, 2000); // 800 pixels per second
+        }
+    });
+});
+
+/* Header */
+
+const header = document.querySelector('.sticky-header');
+let lastScrollY = window.scrollY;
+
+function updateSticky() {
+    const currentScrollY = window.scrollY;
+    const headerHeight = header.offsetHeight; // актуальная высота
+
+    if (currentScrollY < lastScrollY && currentScrollY > headerHeight) {
+        if (!header.classList.contains('sticky')) {
+            header.classList.add('sticky');
+            document.body.style.paddingTop = `${headerHeight}px`;
+        }
+    }
+    else if (currentScrollY > lastScrollY || currentScrollY <= 0) {
+        if (header.classList.contains('sticky')) {
+            header.classList.remove('sticky');
+            document.body.style.paddingTop = '0';
+        }
+    }
+
+    lastScrollY = currentScrollY;
+}
+
+// Обновляем padding при ресайзе (если хедер изменил высоту)
+window.addEventListener('resize', () => {
+    if (header.classList.contains('sticky')) {
+        document.body.style.paddingTop = `${header.offsetHeight}px`;
+    }
+});
+
+window.addEventListener('scroll', updateSticky);

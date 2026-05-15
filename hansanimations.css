@@ -71,3 +71,19 @@
     padding: 32px;
     background: var(--white);
 }
+
+.sticky-header {}
+
+.sticky-header:not(.stricky) {
+    position: relative;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.sticky-header.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: white;
+}

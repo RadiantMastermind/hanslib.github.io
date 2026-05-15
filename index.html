@@ -23,21 +23,42 @@
 
 <body>
 
-    <section class="banner-main">
+    <header class="site-header sticky-header header-v1 js-common-down">
         <div class="container">
+            <div class="header-menu__container">
+                <nav class="header-menu">
+                    <ul class="menu-list menu-v1">
+                        <li class="menu-list-item"><a class="menu-item" href="#examples">Examples</a></li>
+                        <li class="menu-list-item"><a class="menu-item" href="#spreadsheet">Spread sheet</a></li>
+                        <li class="menu-list-item"><a class="menu-item" href="#downloads">Downloads</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="banner-main d-flex">
+        <div class="container d-flex">
             <div class="banner-left__content d-flex flex-column">
                 <h1 class="main-banner__heading js-common-right">Scripts and styles by Dmitry</h1>
-                <a class="cyberpunk-btn js-common-right" data-delay="0.2" href="https://lugubris.ru"
+                <p class="main-banner__subtext js-common-right" data-delay="0.2">Бесплатная библиотека для различных
+                    проектов и автоматической стилизации
+                </p>
+                <a class="cyberpunk-btn js-common-right" data-delay="0.3" href="https://lugubris.ru"
                     target="_blank"><span class="btn__content">My
                         personal
                         website</span></a>
+            </div>
+            <div class="banner-right__content d-fle">
+                <div class="banner-right__image">
+                </div>
             </div>
         </div>
     </section>
 
     <section class="section__showoff">
         <div class="container">
-            <div class="page__heading js-common-down">
+            <div class="page__heading js-common-down" id="examples">
                 <h2 class="text-center page-heading text-center">This is my animation and styles thing. Feel free to
                     copy
                 </h2>
@@ -166,8 +187,8 @@
                     Classes for quick use
                 </h2>
             </div>
-            <div class="classes-table ov-tab-scroll">
-                <table class="table-a">
+            <div class="classes-table ov-tab-scroll" id="spreadsheet">
+                <table class=" table-a">
                     <thead>
                         <tr>
                             <th>Class</th>
@@ -227,9 +248,9 @@
                             <td>behaves like a timer counting from zero to the set value</td>
                         </tr>
                         <tr>
-                            <td>data-delay="0.2</td>
-                            <td>responsible for the delay before the animation starts. Works with both
-                                js-common-direction and number-count</td>
+                            <td><b>data-delay="0.2"</b></td>
+                            <td><b>(NOT A CLAS! DATA ATTIBUTE)</b> responsible for the delay before the animation
+                                starts. Works with both js-common-direction and number-count</td>
                         </tr>
                         <tr>
                             <td>
@@ -258,6 +279,24 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section__showoff downloads__block">
+        <div class="container">
+            <div class="page__heading js-common-down js-common-up" id="downloads" data-delay="0.3">
+                <h2 class="text-center page-heading text-center">Downloads
+                </h2>
+            </div>
+            <div class="d-flex downloads-container">
+                <div class="download-item__block d-flex flex-column js-common-up" data-delay="0.4">
+                    <a href="hansanimations.css" download="">Animations styles file</a>
+                    <a href="hansanimations.js" download="">Animations javascript file</a>
+                </div>
+                <div class="download-item__block d-flex flex-column js-common-up" data-delay="0.5">
+                    <a href="styles-lib.css" download="">Custom styles file</a>
+                </div>
             </div>
         </div>
     </section>

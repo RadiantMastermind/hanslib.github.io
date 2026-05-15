@@ -2,7 +2,7 @@
 
 :root {
     --color-prim: #0898fe;
-    --twhite: white;
+    --white: white;
 }
 
 /* Adaptive container */
@@ -96,7 +96,7 @@
 
 .table-a tr th {
     background-color: var(--color-prim);
-    color: var(--twhite);
+    color: var(--white);
 }
 
 .table-a tr th,
@@ -117,4 +117,28 @@
     .ov-tab-scroll {
         overflow-x: scroll;
     }
+}
+
+/* Header */
+
+.header-v1 {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.568);
+}
+
+/* Menu */
+
+.menu-v1 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 12px;
+}
+
+.menu-v1>li>a {
+    color: var(--color-prim);
+}
+
+.menu-v1>li>a:hover {
+    color: var(--color-prim);
+    text-decoration: underline;
 }
